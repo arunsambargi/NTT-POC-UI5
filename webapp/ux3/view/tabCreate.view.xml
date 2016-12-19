@@ -1,0 +1,62 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="pmps.ux3.controller.tabCreate"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<html:style>
+		.whiteWash { color: white; }
+	</html:style>
+	<VBox class="sapUiSmallMargin">
+		<Label text="Create Date" labelFor="TCI1" required="true"/>
+		<DatePicker id="TCI1" value="{/ICreateDate}" valueFormat="yyyy-MM-dd" displayFormat="long" class="sapUiSmallMarginBottom"/>
+		<Label text="Issue Date" labelFor="TCI2" required="true"/>
+		<DatePicker id="TCI2" value="{/IIssueDate}" valueFormat="yyyy-MM-dd" displayFormat="long" class="sapUiSmallMarginBottom"/>
+		<Label text="Issue Time" labelFor="TCI3" required="true"/>
+		<TimePicker id="TCI3" value="{/IIssueTime}" valueFormat="hh:mm a" displayFormat="hh:mm a" placeholder="Enter Issue Time"
+			class="sapUiSmallMarginBottom"/>
+		<Label text="Issue Product" labelFor="TCI8" required="true"/>
+		<Input id="TCI8" value="{ path : '/IProduct' , type : 'sap.ui.model.type.String' , constraints : { minLength: 1, maxLength: 40 } }"
+			type="Text" placeholder="Enter Product ..." showSuggestion="true" suggestionItems="{/MDMaterials}"
+			valueStateText="Product is Mandatory entry">
+			<suggestionItems>
+				<core:ListItem text="{MATNR_TEXT}" additionalText="{MATNR}"/>
+			</suggestionItems>
+		</Input>
+		<Label text="Issue Description" labelFor="TCI4" required="true"/>
+		<Input id="TCI4" value="{ path : '/IDescription' , type : 'sap.ui.model.type.String' , constraints : { minLength: 1, maxLength: 40 } }"
+			type="Text" class="sapUiSmallMarginBottom" placeholder="Enter Text ..." valueStateText="Issue Description is Mandatory entry"/>
+		<Label text="Issue Priority" labelFor="TCI10" required="true"/>
+		<Select id="TCI10" forceSelection="true" selectedKey="{/IPriority}" items="{ path: '/MDPriority', sorter: { path: 'PRIOK' } }">
+			<core:Item key="{PRIOK}" text="{PRIOK_TEXT}"/>
+		</Select>
+		<Label text="Customer" labelFor="TCI9" required="true"/>
+		<Input id="TCI9" value="{ path : '/ICustomer' , type : 'sap.ui.model.type.String' , constraints : { minLength: 1, maxLength: 40 } }"
+			type="Text" placeholder="Enter Customer ..." showSuggestion="true" suggestionItems="{/MDCustomers}"
+			valueStateText="Customer is Mandatory entry">
+			<suggestionItems>
+				<core:ListItem text="{KUNNR_TEXT}" additionalText="{KUNNR}"/>
+			</suggestionItems>
+		</Input>
+		<Label text="Plant" labelFor="TCI12"/>
+		<Select id="TCI12" forceSelection="true" selectedKey="{/IPlant}" items="{ path: '/MDPlants', sorter: { path: 'WERKS' } }">
+			<core:Item key="{WERKS}" text="{WERKS_TEXT}"/>
+		</Select>
+		<Label text="Reporting User" labelFor="TCI7" required="true"/>
+		<Input id="TCI7" value="{ path : '/IUser' , type : 'sap.ui.model.type.String' , constraints : { minLength: 1, maxLength: 40 } }" type="Text"
+			placeholder="Enter Reporting User ..." showSuggestion="true" suggestionItems="{/MDUsers}" valueStateText="Reporting User is Mandatory entry">
+			<suggestionItems>
+				<core:ListItem text="{UNAME_TEXT}" additionalText="{UNAME}"/>
+			</suggestionItems>
+		</Input>
+		<Label text="Contact Email" labelFor="TCI5" required="true"/>
+		<Input id="TCI5" value="{ path : '/IEmail' , type : 'sap.ui.model.type.String' , constraints : { minLength: 1, maxLength: 40 } }"
+			valueStateText="EMail must be a valid email address." type="Email" class="sapUiSmallMarginBottom" placeholder="Enter Email ..."/>
+		<Label text="Contact Telephone" labelFor="TCI6" required="true"/>
+		<Input id="TCI6" value="{ path : '/ITelephone' , type : 'sap.ui.model.type.String' , constraints : { minLength: 1, maxLength: 40 } }"
+			type="Tel" class="sapUiSmallMarginBottom" placeholder="Enter Telephone Number ..."
+			valueStateText="Telephone must be a valid Telephone Number"/>
+	</VBox>
+	<Toolbar>
+		<ToolbarSpacer/>
+		<Button text="Create Issue" icon="sap-icon://create" press="createIssue" type="Accept"/>
+		<ToolbarSpacer/>
+		<Button text="Cancel" icon="sap-icon://reset" press="resetIssue" type="Reject"/>
+	</Toolbar>
+</mvc:View>

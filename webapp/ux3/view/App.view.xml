@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" height="100%" xmlns:layout="sap.ui.layout" xmlns:commons="sap.ui.commons"
+	xmlns:m="sap.m" xmlns:ux3="sap.ui.ux3" controllerName="pmps.ux3.controller.App" xmlns:html="http://www.w3.org/1999/xhtml">
+	<ux3:Shell id="uxShell" appIcon="ux3/ntt.png" showLogoutButton="false" showFeederTool="false" showSearchTool="false"
+		showInspectorTool="false" worksetItemSelected="worksetItemSelected" applyContentPadding="true" showTools="false" showPane="false"
+		appTitle= "Preventive Maintainence Application">
+		<ux3:headerItems >
+			<layout:VerticalLayout>
+				<layout:HorizontalLayout>
+					<m:Text id="aribaUserName" text="Welcome, Jane Doe"></m:Text>
+				</layout:HorizontalLayout>
+				<layout:HorizontalLayout>
+					<m:Link text="Logout" press="handleLogOff"/>
+				</layout:HorizontalLayout>
+			</layout:VerticalLayout>
+		</ux3:headerItems>
+	</ux3:Shell>
+</mvc:View>

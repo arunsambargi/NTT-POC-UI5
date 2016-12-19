@@ -1,0 +1,18 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" height="100%" xmlns:m="sap.m" controllerName="pmps.ux3.controller.DashBoard"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<m:IconTabBar class="sapUiResponsiveContentPadding" id="MainToolBar" select="handleIconTabBarSelect">
+		<m:items>
+			<m:IconTabFilter icon="sap-icon://quality-issue" count="8" text="Issues" key="tabShip">
+				<mvc:XMLView id="TestView_tabIssue" viewName="pmps.ux3.view.tabIssue"/>
+			</m:IconTabFilter>
+			<m:IconTabSeparator icon=""/>
+			<m:IconTabFilter icon="sap-icon://notification" count="12" text="Notifications" key="tabNotification">
+				<mvc:XMLView id="TestView_tabNotification" viewName="pmps.ux3.view.tabNotification"/>
+			</m:IconTabFilter>
+			<m:IconTabSeparator icon=""/>
+			<m:IconTabFilter icon="sap-icon://create" text="Create Issue" key="tabCreate">
+				<mvc:XMLView id="TestView_tabCreate" viewName="pmps.ux3.view.tabCreate"/>
+			</m:IconTabFilter>
+		</m:items>
+	</m:IconTabBar>
+</mvc:View>
